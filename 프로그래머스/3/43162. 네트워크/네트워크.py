@@ -1,19 +1,15 @@
-answer = 0
 def solution(n, computers):
-    global answer
+    answer = 0
     visited = [0 for i in range(n)]
     for idx in range(n):
         if visited[idx] == 0:
-            dfs(n, computers, idx, visited)
+            dfs(n, computers, visited, idx)
             answer += 1
     return answer
 
-def dfs(n, computers,idx, visited):
-    visited[idx] = 1
+def dfs(n, computers, visited, idx):
+    visited[idx] =1
     for next in range(n):
         if idx != next and computers[idx][next] == 1:
             if visited[next] == 0:
-                dfs(n, computers, next, visited)
-    
-            
-    
+                dfs(n, computers, visited, next)
